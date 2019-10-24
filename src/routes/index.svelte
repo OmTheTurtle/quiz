@@ -1,5 +1,5 @@
 <script>
-  import App from '../components/App.svelte'
+  import App from './_components/App.svelte'
 </script>
 
 <svelte:head>
