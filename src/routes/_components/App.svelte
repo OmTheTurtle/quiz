@@ -51,7 +51,9 @@
     {/if}
 
     {#each PLAYERS as player}
-      <Player on:pointAdded={() => questionText = 'Válassz kérdést!'} name={player} />
+      <Player
+        name={player}
+        on:pointAdded={() => questionText = 'Válassz kérdést!'} />
     {/each}
 
     <i class="fa fa-bolt" on:click={switchToRapidQuestions}></i>
@@ -62,7 +64,7 @@
   </aside>
 </div>
 
-<style>
+<style lang="scss">
   section {
     flex: 5;
     display: flex;
@@ -78,7 +80,7 @@
     width: 9em;
   }
 
-  span.topic {
+  .topic {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -95,11 +97,7 @@
     justify-content: space-around;
   }
 
-  aside {
-    flex: 1;
-  }
-
-  p.question {
+  .question {
     flex: 1;
     text-align: center;
     width: 100%;
