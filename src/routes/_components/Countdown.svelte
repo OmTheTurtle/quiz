@@ -10,7 +10,7 @@
     .toString()
     .length === 1 ? '0' : ''
 
-  $: resultString = `
+  $: remainingTime = `
     ${remainingMinutes}:${additionalZero}${remainingSecondsFromMinute}`
 
   let timer = {}
@@ -43,34 +43,24 @@
   }
 </script>
 
-<div>
+<section>
   <span on:click={pauseResume}
-    style="color: {color};">
-    {resultString}
+    style="color: {color};"
+    class="text-5xl">
+    {remainingTime}
   </span>
 
   <i on:click={reset}
-    class="fa fa-repeat">
+    class="fa fa-repeat text-lg ml-1 hover:text-blue-500">
   </i>
-</div>
+</section>
 
 <style>
-  div {
+  section {
     display: flex;
     align-items: center;
   }
-  span {
-    font-size: 3rem;
+  span, i {
     cursor: pointer;
-  }
-
-  i {
-    margin-left: .2rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-  }
-
-  i:hover {
-    color: rgb(75, 114, 224);
   }
 </style>

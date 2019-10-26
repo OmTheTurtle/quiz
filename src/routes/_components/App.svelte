@@ -27,7 +27,7 @@
   <section class="mx-4">
     {#if !rapidQuestions}
       <div class="questions">
-        {#each TOPICS as topic, i}
+        {#each TOPICS as topic}
           <div class="question-block">
             <span class="topic text-xl" title={topic}>
               {topic}
@@ -39,7 +39,7 @@
         {/each}
       </div>
     {/if}
-    <p class="question text-2xl p-4 m-8 mb-0 border border-blue-500 rounded">
+    <p class="question text-2xl p-2 m-8 mb-0 border border-blue-500 rounded">
       {questionText}
     </p>
   </section>
@@ -56,7 +56,8 @@
         on:pointAdded={() => questionText = 'Válassz kérdést!'} />
     {/each}
 
-    <i class="fa fa-bolt" on:click={switchToRapidQuestions}></i>
+    <i class="fa fa-bolt text-blue-500 hover:text-blue-700 mb-1 pl-1"
+      on:click={switchToRapidQuestions}></i>
     <input
       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
       type="number"
@@ -64,9 +65,8 @@
   </aside>
 </div>
 
-<style lang="scss">
+<style>
   section {
-    flex: 5;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,12 +94,17 @@
     width: 100%;
     flex: 4;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
 
   .question {
     flex: 1;
     text-align: center;
     width: 100%;
+  }
+
+  i.fa {
+    font-size: 2rem;
+    cursor: pointer;
   }
 </style>

@@ -19,13 +19,18 @@
 </script>
 
 <button
-  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded"
+  class="bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-2 mx-2 rounded"
   on:click={onClick}
   disabled={disabled}>
   {points}
 </button>
 
 <style>
+  button {
+    width: 90%;
+    cursor: pointer;
+  }
+
   button:disabled {
     opacity: 20%;
     color: black;

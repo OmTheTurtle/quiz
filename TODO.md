@@ -7,7 +7,9 @@
 - [] Add settings page
 - [] Read players' names from settings
 - [] Read playtimes from settings
-- [] Styling
+- [x] Styling
 - [] Read questions from file
-- [] Handle question sets
+- [x] Handle question sets
 - [] Disable other question buttons while the point is not added to any player
+- [] Handle game restarts
+- [] Handle mid-game edits

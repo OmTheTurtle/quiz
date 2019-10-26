@@ -7,7 +7,7 @@
 <style>
 	main {
 		position: relative;
-		max-width: 60em;
+		max-width: 63em;
 		background-color: white;
 		padding: 2em;
 		margin: 0 auto;
