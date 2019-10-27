@@ -19,7 +19,7 @@
 </script>
 
 <button
-  class="bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-2 mx-2 rounded"
+  class="bg-blue-500 hover:bg-blue-700 text-white text-2xl font-bold py-2 rounded"
   on:click={onClick}
   disabled={disabled}>
   {points}

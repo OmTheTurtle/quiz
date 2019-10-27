@@ -29,9 +29,9 @@
       <div class="questions">
         {#each TOPICS as topic}
           <div class="question-block">
-            <span class="topic text-xl" title={topic}>
+            <div class="topic text-xl" title={topic}>
               {topic}
-            </span>
+            </div>
             {#each QUESTIONS as { points, text }}
               <QuestionButton {points} {text} on:update={onQuestionClick} />
             {/each}
@@ -39,7 +39,7 @@
         {/each}
       </div>
     {/if}
-    <p class="question text-2xl p-2 m-8 mb-0 border border-blue-500 rounded">
+    <p class="question text-2xl p-2 border border-blue-500 rounded">
       {questionText}
     </p>
   </section>
@@ -88,13 +88,11 @@
     -webkit-box-orient: vertical;
     text-align: center;
     min-height: 3em;
-    vertical-align: middle;
   }
   .questions {
     width: 100%;
     flex: 4;
     display: flex;
-    justify-content: space-evenly;
   }
 
   .question {
