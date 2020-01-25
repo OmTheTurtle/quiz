@@ -13,16 +13,16 @@
 </script>
 
 <section>
-  <div class="name text-xl">{name}</div>
+  <div class="text-xl">{name}</div>
   <div class="text-3xl border border-blue-500 rounded pr-1 mb-1 score">
     {score}
   </div>
-  <div class="buttons mb-2">
+  <div class="buttons flex justify-center mb-2">
     <i on:click={() => updateScore(true)}
       class="button fa fa-plus-square text-blue-500 hover:text-blue-700">
     </i>
     <i on:click={() => updateScore(false)}
-      class="button fa fa-minus-square text-blue-500 hover:text-blue-700">
+      class="button fa fa-minus-square text-blue-500 hover:text-blue-500">
     </i>
   </div>
 </section>
@@ -32,13 +32,12 @@
     text-align: end;
   }
 
+  .buttons {
+    justify-content: space-between;
+  }
+
   i.button {
     font-size: 2rem;
     cursor: pointer;
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: space-between;
   }
 </style>

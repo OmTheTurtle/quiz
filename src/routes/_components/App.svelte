@@ -1,5 +1,5 @@
 <script>
-  import { questionScore } from '../../stores.js'
+  import { questionScore, players } from '../../stores.js'
 
   import Countdown from './Countdown.svelte'
   import Player from './Player.svelte'
@@ -50,7 +50,7 @@
       <Countdown minutes={7} />
     {/if}
 
-    {#each PLAYERS as player}
+    {#each $players as player}
       <Player
         name={player}
         on:pointAdded={() => questionText = 'Válassz kérdést!'} />
