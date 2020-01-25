@@ -20,6 +20,10 @@
     }
   }
 
+  const updateQuestionScore = event => {
+    questionScore.set(+event.target.value)
+  }
+
   const onQuestionClick = (event) => questionText = event.detail.text
 </script>
 
@@ -61,7 +65,8 @@
     <input
       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
       type="number"
-      bind:value={$questionScore} />
+      bind:value={$questionScore}
+      on:change={updateQuestionScore} />
   </aside>
 </div>
 
