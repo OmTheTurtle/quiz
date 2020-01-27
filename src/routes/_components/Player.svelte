@@ -3,7 +3,7 @@
   import { questionScore, enableQuestionClick } from '../../stores.js'
 
   const dispatch = createEventDispatcher();
-  export let name = 'Közönség'
+  export let name
   let score = 0
 
   const updateScore = (positive) => {

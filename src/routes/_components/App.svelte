@@ -1,5 +1,6 @@
 <script>
   import { questionScore, players, enableQuestionClick } from '../../stores.js'
+  import { DEFAULT_QUESTION_TEXT } from '../../util/constants.js'
 
   import Countdown from './Countdown.svelte'
   import Player from './Player.svelte'
@@ -7,8 +8,6 @@
 
   import TOPICS from '../../mock/topics.mock'
   import QUESTIONS from '../../mock/questions.mock'
-
-  const DEFAULT_QUESTION_TEXT = 'Válassz kérdést!'
 
   let questionText = DEFAULT_QUESTION_TEXT
   let rapidQuestions = false
@@ -60,9 +59,9 @@
       <Countdown minutes={7} />
     {/if}
 
-    {#each $players as player}
+    {#each $players as player, i}
       <Player
-        name={player}
+        name={player || `Játékos${i + 1}`}
         on:pointAdded={() => questionText = 'Válassz kérdést!'} />
     {/each}
 

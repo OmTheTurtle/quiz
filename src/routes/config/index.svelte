@@ -6,7 +6,7 @@
   const onSubmit = (event) => {
     let newPlayers = []
     for (let i = 0; i < $playerCount; i++) {
-      newPlayers.push(event.target[i].value)
+      newPlayers.push(event.target[i].value || `Játekos${i + 1}`)
     }
     players.set(newPlayers)
   }
@@ -18,8 +18,7 @@
     <input
       id={i}
       type="text"
-      placeholder="Játékos{i+1}"
-      value={player ||''}
+      value={player || `Játékos${i + 1}`}
       class="player shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
   {/each}
   <button
