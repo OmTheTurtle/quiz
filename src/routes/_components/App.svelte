@@ -1,5 +1,5 @@
 <script>
-  import { questionScore, players } from '../../stores.js'
+  import { questionScore, players, enableQuestionClick } from '../../stores.js'
 
   import Countdown from './Countdown.svelte'
   import Player from './Player.svelte'
@@ -8,7 +8,9 @@
   import TOPICS from '../../mock/topics.mock'
   import QUESTIONS from '../../mock/questions.mock'
 
-  let questionText = 'Válassz kérdést!'
+  const DEFAULT_QUESTION_TEXT = 'Válassz kérdést!'
+
+  let questionText = DEFAULT_QUESTION_TEXT
   let rapidQuestions = false
 
   const switchToRapidQuestions = () => {
@@ -24,6 +26,11 @@
   }
 
   const onQuestionClick = (event) => questionText = event.detail.text
+
+  const noAnswer = () => {
+    questionText = DEFAULT_QUESTION_TEXT
+    enableQuestionClick.set(true)
+  }
 </script>
 
 <div class="flex">
@@ -60,7 +67,11 @@
     {/each}
 
     <i class="fa fa-bolt text-blue-500 hover:text-blue-700 mb-1 pl-1"
-      on:click={switchToRapidQuestions}></i>
+      on:click={switchToRapidQuestions}
+      title="Villámkérdések"></i>
+    <i class="fa fa-ban text-blue-500 hover:text-blue-700 mb-1 pl-1"
+      on:click={noAnswer}
+      title="Nincs válasz"></i>
     <input
       class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
       type="number"
