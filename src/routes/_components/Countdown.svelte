@@ -36,10 +36,12 @@
   }
 
   const reset = () => {
-    running = false
-    color = 'orange'
-    clearInterval(timer)
-    remainingSeconds = minutes * 60 + seconds
+    if(confirm('Biztosan reseteled az időzítőt?')) {
+      running = false
+      color = 'orange'
+      clearInterval(timer)
+      remainingSeconds = minutes * 60 + seconds
+    }
   }
 </script>
 
