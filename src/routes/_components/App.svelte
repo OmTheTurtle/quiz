@@ -5,7 +5,6 @@
   import Player from './Player.svelte'
   import QuestionButton from './QuestionButton.svelte'
 
-  import PLAYERS from '../../mock/players.mock'
   import TOPICS from '../../mock/topics.mock'
   import QUESTIONS from '../../mock/questions.mock'
 
