@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte'
-  import { questionScore } from '../../stores.js'
+  import { questionScore, enableQuestionClick } from '../../stores.js'
 
   const dispatch = createEventDispatcher()
   export let points = 0
@@ -8,9 +8,12 @@
   let disabled = false
 
   const onClick = () => {
-    disabled = true
-    upadateQuestionScore(points)
-    dispatch('update', { text })
+    if ($enableQuestionClick) {
+      disabled = true
+      upadateQuestionScore(points)
+      dispatch('update', { text })
+      enableQuestionClick.set(false)
+    }
   }
 
   const upadateQuestionScore = (points) => {

@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte'
-  import { questionScore } from '../../stores.js'
+  import { questionScore, enableQuestionClick } from '../../stores.js'
 
   const dispatch = createEventDispatcher();
   export let name = 'Közönség'
@@ -9,6 +9,7 @@
   const updateScore = (positive) => {
     score += positive ? $questionScore : -$questionScore
     dispatch('pointAdded')
+    enableQuestionClick.set(true)
   }
 </script>
 
@@ -22,7 +23,7 @@
       class="button fa fa-plus-square text-blue-500 hover:text-blue-700">
     </i>
     <i on:click={() => updateScore(false)}
-      class="button fa fa-minus-square text-blue-500 hover:text-blue-500">
+      class="button fa fa-minus-square text-blue-500 hover:text-blue-700">
     </i>
   </div>
 </section>
