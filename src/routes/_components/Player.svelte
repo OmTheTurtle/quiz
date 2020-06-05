@@ -1,13 +1,14 @@
 <script>
   import { createEventDispatcher } from 'svelte'
-  import { questionScore, enableQuestionClick } from '../../stores.js'
+  import { enableQuestionClick, players, questionScore } from '../../stores.js'
 
   const dispatch = createEventDispatcher();
   export let name
-  let score = 0
+  export let score = 0
 
   const updateScore = (positive) => {
     score += positive ? $questionScore : -$questionScore
+    players.update(prev => prev.map(p => (p.name === name) ? ({ name: p.name, score }) : p))
     dispatch('pointAdded')
     enableQuestionClick.set(true)
   }
@@ -15,10 +16,10 @@
 
 <section>
   <div class="text-xl">{name}</div>
-  <div class="text-3xl border border-blue-500 rounded pr-1 mb-1 score">
+  <div class="text-3xl border border-blue-500 rounded pr-1 mb-1 text-right">
     {score}
   </div>
-  <div class="buttons flex justify-center mb-2">
+  <div class="flex justify-between mb-2">
     <i on:click={() => updateScore(true)}
       class="button fa fa-plus-square text-blue-500 hover:text-blue-700">
     </i>
@@ -29,14 +30,6 @@
 </section>
 
 <style>
-  .score {
-    text-align: end;
-  }
-
-  .buttons {
-    justify-content: space-between;
-  }
-
   i.button {
     font-size: 2rem;
     cursor: pointer;

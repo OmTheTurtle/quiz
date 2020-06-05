@@ -16,7 +16,9 @@ export default [
     points: 4000
   },
   {
-    text: 'Bathe private parts with tongue then lick owner\'s face snuggles up to shoulders',
+    text: `Nem tudom, mit gondolnak más emberek / A házam itt elfoglalt / Egy kis ország,
+gyermekkorom tönkrement. / Tőle nőttem fel, mint egy fa gyenge ága / Remélem, a
+testem e földre esik.`,
     points: 5000
   },
   {
